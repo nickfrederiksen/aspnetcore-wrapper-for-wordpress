@@ -1,0 +1,16 @@
+﻿@model IEnumerable<NDesoft.Wrapper.Models.PostModel>
+@using System.Globalization;
+@{
+	ViewData["Title"] = "Home Page";
+}
+
+@foreach (var item in Model)
+{
+	<article>
+		<a href="/@item.Date.ToString("yyyy/MM/dd", CultureInfo.InvariantCulture)/@item.Slug"><h2>@Html.Raw(item.Title)</h2></a>
+		<div>@item.Date</div>
+		<div>
+			@Html.Raw(item.Content)
+		</div>
+	</article>
+}
